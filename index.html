@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Noto+Serif+Devanagari:wght@300;400&display=swap" rel="stylesheet">
+<script src="data.js"></script>
 <style>
   :root {
     --cream: #FAF7F2;
@@ -160,19 +161,19 @@
 
 <div class="stat-band">
   <div class="stat-item">
-    <span class="stat-number">1.47L</span>
+    <span class="stat-number" id="stat-subscribers"></span>
     <span class="stat-label">YouTube Subscribers</span>
   </div>
   <div class="stat-item">
-    <span class="stat-number">102M</span>
+    <span class="stat-number" id="stat-total-views"></span>
     <span class="stat-label">Total Views</span>
   </div>
   <div class="stat-item">
-    <span class="stat-number">41</span>
+    <span class="stat-number" id="stat-countries"></span>
     <span class="stat-label">Countries Reached</span>
   </div>
   <div class="stat-item">
-    <span class="stat-number">7 yrs</span>
+    <span class="stat-number" id="stat-years"></span>
     <span class="stat-label">And Counting</span>
   </div>
 </div>
@@ -188,18 +189,18 @@
         <div>
           <span class="property-tag tag-saffron">Flagship Property</span>
           <h3 class="property-title">Super<em>Mummy</em></h3>
-          <p class="property-desc">100 million + times, an Indian mother &mdash; pregnant, uncertain, searching at midnight &mdash; came looking for an answer she should never have had to search for. About her body. Her baby. What was normal and what was not. SuperMummy exists because the Indian mother deserves to be spoken to &mdash; in her language, with her fear taken seriously, by someone with no agenda except her wellbeing. Every video doctor-verified. Always.</p>
+          <p class="property-desc"><span id="desc-total-views"></span> times, an Indian mother &mdash; pregnant, uncertain, searching at midnight &mdash; came looking for an answer she should never have had to search for. About her body. Her baby. What was normal and what was not. SuperMummy exists because the Indian mother deserves to be spoken to &mdash; in her language, with her fear taken seriously, by someone with no agenda except her wellbeing. Every video doctor-verified. Always.</p>
           <div class="property-stats">
             <div class="property-stat">
-              <span class="property-stat-num">1.1Cr</span>
+              <span class="property-stat-num" id="card-monthly-views"></span>
               <span class="property-stat-label">Monthly Views</span>
             </div>
             <div class="property-stat">
-              <span class="property-stat-num">1.47L</span>
+              <span class="property-stat-num" id="card-subscribers"></span>
               <span class="property-stat-label">Subscribers</span>
             </div>
             <div class="property-stat">
-              <span class="property-stat-num">7 yrs</span>
+              <span class="property-stat-num" id="card-years"></span>
               <span class="property-stat-label">On Air</span>
             </div>
           </div>
@@ -221,11 +222,11 @@
           <p class="property-desc">The MahaShivPuran has been waiting for most of the people it was written for. Waiting because this great teacher of psychology has been kept behind difficult language and mysterious symbolism.<br><br>Har Din MahaShivPuran opens that door.<br><br>A Hindi podcast that moves through the chapters &mdash; and pauses, in every episode, to ask not what the text says but what it means. For the way we live now. For the questions we carry now.<br><br>Because this is not simply a religious text. It is one of humanity&rsquo;s most sophisticated psychological maps. Thousands of years old. Still steady. It asks the questions that do not go away &mdash; what is the purpose of a life, how do we live it well, how do we find a peace that no storm can shake, how do we know what is truly right.<br><br>These are not ancient questions. They are this morning&rsquo;s questions.<br><br>Har Din is simply the door.</p>
           <div class="property-stats">
             <div class="property-stat">
-              <span class="property-stat-num">31</span>
+              <span class="property-stat-num" id="card-episodes"></span>
               <span class="property-stat-label">Episodes, Season 1</span>
             </div>
             <div class="property-stat">
-              <span class="property-stat-num">41</span>
+              <span class="property-stat-num" id="card-podcast-countries"></span>
               <span class="property-stat-label">Countries</span>
             </div>
           </div>
@@ -299,6 +300,19 @@
 </footer>
 
 <script>
+  // Populate numbers from data.js
+  document.getElementById('stat-subscribers').textContent = JANANAM_DATA.subscribers;
+  document.getElementById('stat-total-views').textContent = JANANAM_DATA.totalViews;
+  document.getElementById('stat-countries').textContent = JANANAM_DATA.podcastCountries;
+  document.getElementById('stat-years').textContent = JANANAM_DATA.yearsOnAir + ' yrs';
+  document.getElementById('desc-total-views').textContent = JANANAM_DATA.totalViews + ' +';
+  document.getElementById('card-monthly-views').textContent = JANANAM_DATA.monthlyViews;
+  document.getElementById('card-subscribers').textContent = JANANAM_DATA.subscribers;
+  document.getElementById('card-years').textContent = JANANAM_DATA.yearsOnAir + ' yrs';
+  document.getElementById('card-episodes').textContent = JANANAM_DATA.podcastEpisodes;
+  document.getElementById('card-podcast-countries').textContent = JANANAM_DATA.podcastCountries;
+
+  // Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
