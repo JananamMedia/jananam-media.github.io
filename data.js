@@ -1,12 +1,12 @@
 const JANANAM_DATA = {
   // SuperMummy numbers — update these every month
-  totalViews: "120M",
-  monthlyViews: "1.15Cr",
-  subscribers: "1.57L",
+  totalViews: "129M",
+  monthlyViews: "1.04Cr",
+  subscribers: "1.61L",
   yearsOnAir: "8",
   // Har Din MahaShivPuran — update when Season 2 launches
-  podcastEpisodes: "31",
-  podcastCountries: "41",
+  podcastEpisodes: "36",
+  podcastCountries: "65",
   // Last updated — change this each month so you always know
-  lastUpdated: "April 2026"
+  lastUpdated: "May 2026"
 }
